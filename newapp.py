@@ -76,8 +76,28 @@ if st.button('Obtener Recomendaciones'):
             st.subheader(f"Recomendaciones para '{movie_title}':")
             for rec in recommendations:
                 st.write(f"- {rec}")
+
+        # --- Sección para agregar una reseña ---
+        st.markdown("---")
+        st.subheader(f"Agrega tu reseña para '{movie_title}':")
+        user_review = st.text_area("Escribe tu reseña aquí:")
+
+        if st.button("Enviar Reseña"):
+            if user_review:
+                # Aquí puedes procesar la reseña (por ejemplo, guardarla en un archivo, base de datos, etc.)
+                # Por ahora, simplemente mostraremos la reseña enviada.
+                st.write("¡Gracias por tu reseña!")
+                st.write(f"Tu reseña para '{movie_title}':")
+                st.write(user_review)
+            else:
+                st.warning("Por favor, escribe algo en la reseña antes de enviarla.")
+
     else:
         st.info('Por favor, ingresa el título de una película.')
 
 st.markdown("---")
-st.write("Guarda este código como un archivo `.py` (por ejemplo, `app.py`) en el mismo directorio donde guardaste `movie_list.pkl` y `similarity.pkl`, y luego ejecútalo desde tu terminal con el comando `streamlit run app.py`.")
+st.write("Hola Mundo.")
+
+# --- Agregar información del autor ---
+st.markdown("---")
+st.write("Creado por: [EsliAsareel]") # Reemplaza "[Tu Nombre Aquí]" con tu nombre
