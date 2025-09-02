@@ -23,7 +23,6 @@ try:
     with open(similarity_path, 'rb') as f:
         cosine_sim = pickle.load(f)
 
-    st.success("Archivos 'movie_list.pkl' y 'similarity.pkl' cargados exitosamente.")
 
 except Exception as e:
     st.error(f"Error al cargar los archivos: {e}")
@@ -33,7 +32,7 @@ except Exception as e:
 # Ensure the 'title' column exists in the loaded movies DataFrame
 if 'title' in movies.columns:
     indices = pd.Series(movies.index, index=movies['title']).drop_duplicates()
-    st.success("Índices de películas creados.")
+   
 else:
     st.error("La columna 'title' no se encontró en el DataFrame cargado.")
     st.stop()
@@ -63,7 +62,7 @@ def get_recommendations(title, cosine_sim=cosine_sim, movies=movies, indices=ind
     return movies['title'].iloc[movie_indices]
 
 # --- Crear la interfaz web con Streamlit ---
-st.title('Sistema de Recomendación de Películas')
+st.title('Recomendación de Películas')
 
 movie_title = st.text_input('Ingresa el título de una película:')
 
